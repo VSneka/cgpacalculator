@@ -11,23 +11,27 @@ public class cgpa {
 
         double totalGradePoints = 0;
         int totalCredits = 0;
+        if(numSemesters<=8) {
 
-        for (int i = 1; i <= numSemesters; i++) {
-            System.out.println("\nSemester " + i + ":");
-            System.out.print("Enter GPA for the semester: ");
-            double semesterGPA = scanner.nextDouble();
+            for (int i = 1; i <= numSemesters; i++) {
+                System.out.println("\nSemester " + i + ":");
+                System.out.print("Enter GPA for the semester: ");
+                double semesterGPA = scanner.nextDouble();
 
-            System.out.print("Enter total credits for the semester: ");
-            int semesterCredits = scanner.nextInt();
+                System.out.print("Enter total credits for the semester: ");
+                int semesterCredits = scanner.nextInt();
 
-            totalGradePoints += semesterGPA * semesterCredits;
-            totalCredits += semesterCredits;
+                totalGradePoints += semesterGPA * semesterCredits;
+                totalCredits += semesterCredits;
+            }
+
+            double cgpa = totalGradePoints / totalCredits;
+
+            System.out.println("\nYour CGPA is: " + cgpa);
         }
-
-        double cgpa = totalGradePoints / totalCredits;
-
-        System.out.println("\nYour CGPA is: " + cgpa);
-
+        else{
+            System.out.println("Please enter a valid semester number ");
+        }
         scanner.close();
     }
 }
